@@ -143,12 +143,12 @@
         font-size: 1.5rem;
     }
 
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 1000px) {
         #sliders {
             flex-direction: column;
         }
         .container {
-            left: 15%;
+            left: 1rem;
             transform: translate(0%, -50%);
         }
     }
