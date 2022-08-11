@@ -1,7 +1,7 @@
 <script>
     import Slider from "./lib/Slider.svelte";
     import ColorRow from "./lib/ColorRow.svelte";
-    import { rgb } from "./lib/colors.js";
+    import { rgb, tooDark } from "./lib/colors.js";
     import { writable } from "svelte/store";
 
     let current_row = writable(0);
@@ -47,7 +47,7 @@
             <span>{$current_row+1}</span>
             <span on:click={()=> $current_row++}>&downarrow;</span>
         </h2>
-        <div id="toggle-slider" on:click={()=>{ closed = !closed }}>
+        <div id="toggle-slider" on:click={()=>{ closed = !closed }} class:too-dark={$current_row == 1 && tooDark(r,g,b)}>
             <i class="bi bi-list"></i>
             <p>Toggle</p>
         </div>
@@ -130,6 +130,10 @@
         font-size: 2rem;
         cursor: pointer;
         user-select: none;
+    }
+    #toggle-slider.too-dark {
+        color: white;
+        border-color: white;
     }
     #toggle-slider i {
         padding-bottom: 0.5rem;
