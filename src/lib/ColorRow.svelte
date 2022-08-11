@@ -32,6 +32,7 @@
 <style>
     main {
         position: relative;
+        transition: background-color 0.5s;
     }
     main.selected {
         border: 2px dashed black;
